@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Agu 2023 pada 07.50
+-- Waktu pembuatan: 08 Sep 2023 pada 13.28
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.0.28
 
@@ -29,7 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `kategori` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `nama` varchar(255) NOT NULL,
+  `pegawai_nama` varchar(50) NOT NULL,
+  `pegawai_jabatan` varchar(50) NOT NULL,
+  `pegawai_umur` int(11) NOT NULL,
+  `pegawai_alamat` varchar(50) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -38,12 +41,8 @@ CREATE TABLE `kategori` (
 -- Dumping data untuk tabel `kategori`
 --
 
-INSERT INTO `kategori` (`id`, `nama`, `created_at`, `updated_at`) VALUES
-(5, 'Salary', '2023-08-01 16:51:42', '2023-08-01 16:51:42'),
-(6, 'Other Income', '2023-08-01 16:51:52', '2023-08-01 16:51:52'),
-(7, 'Family Expense', '2023-08-01 16:52:08', '2023-08-01 16:52:08'),
-(8, 'Transport Expense', '2023-08-01 16:52:44', '2023-08-01 16:52:44'),
-(9, 'Meal Expense', '2023-08-01 16:53:25', '2023-08-01 16:53:25');
+INSERT INTO `kategori` (`id`, `pegawai_nama`, `pegawai_jabatan`, `pegawai_umur`, `pegawai_alamat`, `created_at`, `updated_at`) VALUES
+(13, 'Kusnaedi', 'Manajer', 55, 'Cimahi', '2023-09-08 04:21:33', '2023-09-08 04:21:40');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +62,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

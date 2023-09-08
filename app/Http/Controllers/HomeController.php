@@ -25,8 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $coa = Mcoa::all();
         $roleName = Mkategori::all();
-        return view('coa.index', compact(['coa', 'roleName']));
+        return view('coa.pegawai', compact(['roleName']));
     }
 }

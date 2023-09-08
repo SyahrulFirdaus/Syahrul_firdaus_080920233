@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('trasaction', function (Blueprint $table) {
+        Schema::create('kategori', function (Blueprint $table) {
             $table->id();
             $table->string('pegawai_nama');
             $table->string('pegawai_jabatan');
             $table->string('pegawai_umur');
             $table->string('pegawai_alamat');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trasaction');
+        Schema::dropIfExists('kategori');
     }
 };

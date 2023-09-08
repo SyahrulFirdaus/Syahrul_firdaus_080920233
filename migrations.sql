@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Agu 2023 pada 07.50
+-- Waktu pembuatan: 08 Sep 2023 pada 13.28
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.0.28
 
@@ -45,7 +45,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2023_07_28_175509_create_mcoa_table', 2),
 (6, '2023_07_31_141311_create_kategori_table', 3),
 (7, '2023_08_01_044932_create_trasaction_table', 4),
-(8, '2023_08_01_184031_create_report_table', 5);
+(8, '2023_08_01_184031_create_report_table', 5),
+(9, '2023_09_08_101417_create_data_pegawai_table', 6);
 
 --
 -- Indexes for dumped tables
@@ -65,7 +66,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -7,54 +7,50 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
 use App\Models\Mcoa;
-
+use App\Models\Mkategori;
+use App\Models\Mreport;
 use App\Models\Mtransaction;
 use Illuminate\Http\Request;
 
 
 class McoaController extends Controller
 {
-    //
-    public function index()
+    public function vdua()
     {
-        $roleTransaction = Mtransaction::all();
-        $roleCoa = Mcoa::all();
-        return view('coa.transaction', compact(['roleTransaction', 'roleCoa']));
+    
+        return view('coa.dua');
     }
 
-    // Transaction
-    public function vtransaction()
+    // Pegawai
+    public function vPegawai()
     {
-        $roleTransaction = Mtransaction::all();
-        $roleCoa = Mcoa::all();
-        return view('coa.transaction', compact(['roleTransaction', 'roleCoa']));
+        $roleName = Mkategori::all();
+        return view('coa.pegawai', compact(['roleName']));
     }
 
-    public function storeTransaction(Request $request)
+    public function storePegawai(Request $request)
     {
-        Mtransaction::create($request->except(['_token', 'submit']));
-        return redirect('/mcoa/vtransaction');
+        Mkategori::create($request->except(['_token', 'submit']));
+        return redirect('/mcoa/vPegawai');
     }
 
-    public function destroyTransaction($id)
+    public function editPegawai($id)
     {
-        $delTransaction = Mtransaction::find($id);
-        $delTransaction->delete();
-        return redirect('/mcoa/vtransaction');
+        $coa = Mkategori::find($id);
+        return view('coa.editPegawai', compact(['coa']));
     }
 
-
-    public function editTransaction($id)
+    public function updatePegawai($id, Request $request)
     {
-        $coa = Mtransaction::find($id);
-        $roleCoa = Mcoa::all();
-        return view('coa.editTransaction', compact(['coa', 'roleName', 'roleCoa']));
-    }
-
-    public function updateTransaction($id, Request $request)
-    {
-        $coa = Mtransaction::find($id);
+        $coa = Mkategori::find($id);
         $coa->update($request->except(['_token', 'submit']));
-        return redirect('/mcoa/vtransaction');
+        return redirect('/mcoa/vPegawai');
+    }
+
+    public function destroyPegawai($id)
+    {
+        $delKategori = Mkategori::find($id);
+        $delKategori->delete();
+        return redirect('/mcoa/vPegawai');
     }
 }

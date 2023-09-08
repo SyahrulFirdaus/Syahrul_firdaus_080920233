@@ -17,77 +17,20 @@
             rel="stylesheet">
         <link href="/css/sb-admin-2.min.css" rel="stylesheet">
         <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script>
-      function formatNumber(n) {
-        // format number 1000000 to 1,234,567
-        return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, "");
-      }
+        <script>
+			$(document).ready(function(){
 
-      function formatCurrency(input, currency, blur) {
-        // appends $ to value, validates decimal side
-        // and puts cursor back in right position.
-        // get input value
-        var input_val = input.value;
-        // don't validate empty input
-        if (input_val === "") {
-          return;
-        }
+				$('.container').css({'background':'#81ecec', 'color':'#2d3436', 'padding':'5px', 'margin-top':'10px'});
+				$('h3').css({'color':'red', 'text-align':'center'});
 
-        // original length
-        var original_len = input_val.length;
+				$("button").click(function(){
+					var user = $('#user').val();
+					var pass = $('#pass').val();
 
-        // initial caret position
-        var caret_pos = input.selectionStart;
-
-        // check for decimal
-        if (input_val.indexOf(".") >= 0) {
-          // get position of first decimal
-          // this prevents multiple decimals from
-          // being entered
-          var decimal_pos = input_val.indexOf(".");
-
-          // split number by decimal point
-          var left_side = input_val.substring(0, decimal_pos);
-          var right_side = input_val.substring(decimal_pos);
-
-          // add commas to left side of number
-          left_side = formatNumber(left_side);
-
-          // validate right side
-          right_side = formatNumber(right_side);
-
-          // On blur make sure 2 numbers after decimal
-          if (blur === "blur") {
-            right_side += "00";
-          }
-
-          // Limit decimal to only 2 digits
-          right_side = right_side.substring(0, 2);
-
-          // join number by .
-          input_val = currency + left_side + "." + right_side;
-        } else {
-          // no decimal entered
-          // add commas to number
-          // remove all non-digits
-          input_val = formatNumber(input_val);
-          input_val = currency + input_val;
-
-          // final formatting
-          if (blur === "blur") {
-            input_val += ".00";
-          }
-        }
-
-        // send updated string to input
-        input.value = input_val;
-
-        // put caret back in the right position
-        var updated_len = input_val.length;
-        caret_pos = updated_len - original_len + caret_pos;
-        input.setSelectionRange(caret_pos, caret_pos);
-      }
-    </script>
+					alert('Email = ' +user + '\n\n password = ' + pass );
+				})
+			})
+		</script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>

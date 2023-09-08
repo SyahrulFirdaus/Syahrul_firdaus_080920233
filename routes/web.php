@@ -26,13 +26,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/mcoa/{id}', [McoaController::class, 'update']);
     Route::delete('/mcoa/{id}', [McoaController::class, 'destroy']);
 
-  
-    Route::get('/mcoa/vtransaction', [McoaController::class, 'vtransaction']);
-    Route::post('/mcoa/storeTransaction', [McoaController::class, 'storeTransaction']);
-    Route::delete('/mcoa/vtransaction/{id}', [McoaController::class, 'destroyTransaction']);
-    Route::get('/mcoa/{id}/editTransaction', [McoaController::class, 'editTransaction']);
-    Route::put('/mcoa/vtransaction/{id}', [McoaController::class, 'updateTransaction']);
+    Route::get('/mcoa/vdua', [McoaController::class, 'vdua']);
 
+    Route::get('/mcoa/vPegawai', [McoaController::class, 'vPegawai']);
+    Route::post('/mcoa/storePegawai', [McoaController::class, 'storePegawai']);
+    Route::delete('/mcoa/vPegawai/{id}', [McoaController::class, 'destroyPegawai']);
+    Route::get('/mcoa/{id}/editPegawai', [McoaController::class, 'editPegawai']);
+    Route::put('/mcoa/vPegawai/{id}', [McoaController::class, 'updatePegawai']);
 });
 
 
