@@ -49,8 +49,8 @@ class McoaController extends Controller
 
     public function destroyPegawai($id)
     {
-        $delKategori = Mkategori::find($id);
-        $delKategori->delete();
+        $delPegawai = Mkategori::find($id);
+        $delPegawai->delete();
         return redirect('/mcoa/vPegawai');
     }
 }

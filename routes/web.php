@@ -19,12 +19,7 @@ Route::get('/', function () {
     return view('/auth/login');
 });
 Route::middleware(['auth'])->group(function () {
-    Route::post('/mcoa/customWarna', [McoaController::class, 'customWarna']);
-    Route::get('/mcoa', [McoaController::class, 'index']);
-    Route::post('/mcoa/store', [McoaController::class, 'store']);
-    Route::get('/mcoa/{id}/edit', [McoaController::class, 'edit']);
-    Route::put('/mcoa/{id}', [McoaController::class, 'update']);
-    Route::delete('/mcoa/{id}', [McoaController::class, 'destroy']);
+   
 
     Route::get('/mcoa/vdua', [McoaController::class, 'vdua']);
 

@@ -50,18 +50,12 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Usia</label>
-                                            <input type="text" class="form-control" id="usia" name="usia" aria-describedby="emailHelp" placeholder="usia">
-                                        </div>
+                                            <label for="exampleInputEmail1">Tempat, Tanggal Lahir</label>
+                                            <input type="text" class="form-control" id="tempat" name="tempat" aria-describedby="emailHelp" placeholder="Tempat Lahir">
+                                            <input type="text" class="form-control" id="tanggal" name="tanggal" aria-describedby="emailHelp" placeholder="Tanggal">
+                                            <input type="text" class="form-control" id="bulan" name="bulan" aria-describedby="emailHelp" placeholder="Bulan">
+                                            <input type="text" class="form-control" id="tahun" name="tahun" aria-describedby="emailHelp" placeholder="Tahun">
 
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Nomor Telepon</label>
-                                            <input type="text" class="form-control" id="telepon" name="telepon" aria-describedby="emailHelp" placeholder="Telepon">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Hoby</label>
-                                            <input type="text" class="form-control" id="hoby" name="hoby" aria-describedby="emailHelp" placeholder="Hoby">
                                         </div>
 
                                         <div class="form-group">
@@ -69,8 +63,43 @@
                                             <input type="text" class="form-control" id="alamat" name="alamat" aria-describedby="emailHelp" placeholder="Alamat">
                                         </div>
 
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Nomor Telepon</label>
+                                            <input type="text" class="form-control" id="no_telp" name="no_telp" aria-describedby="emailHelp" placeholder="Telepon">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Jenis Kelamin</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Laki-Laki" id=""> Laki-Laki
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Perempuan" id=""> Perempuan
+                                            </div>                                                              
+                                        </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Agama</label>
+                                                <select class="form-select" aria-label="Default select example" name="agama">
+                                                    <option selected>Pilih Agama</option>
+                                                    <option value="Islam">Islam</option>
+                                                    <option value="Kristen">Kristen</option>
+                                                    <option value="Budha">Budha</option>
+                                                    <option value="Hindu">Hindu</option>
+
+                                                  </select>                         
+                                            </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Hoby</label>
+                                            <input type="checkbox" name="hobby" value="Baca Buku" id=""> Baca Buku <input
+                                            type="checkbox" name="hobby" value="Olahraga" id=""> Olah Raga <input type="checkbox"
+                                            name="hobby" value="Main Game" id=""> Main Game <input type="checkbox" name="hobby"
+                                            value="Hiking" id=""> Hiking</td>                                        </div>
+
                                     <a class="btn btn-warning" href="/mcoa">Cancel</a>
-                                    <button type="submit" class="btn btn-primary" onclick="alert('nama')">Tampilkan</button>
+                                    <button type="submit" class="btn btn-primary" onClick="ValidasiData()">Tampilkan</button>
                                     </form>
                                 </div>
                             </div>
@@ -88,9 +117,37 @@
             </div>
         </div>
 
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+        <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer"></script>
+    <script>
+        function ValidasiData() {
+            const nama = $("[name='nama']").val();
+            const tempat = $("[name='tempat']").val();
+            const tanggal = $("[name='tanggal']").val();
+            const bulan = $("[name='bulan']").val();
+            const tahun = $("[name='tahun']").val();
+            const alamat = $("[name='alamat']").val();
+            const no_telp = $("[name='no_telp']").val();
+            const jenis_kelamin = $("[name='jenis_kelamin']").val();
+            const agama = $("[name='agama']").val();
+            const check = document.getElementsByName('hobby');
+            var arr = "";
+            for (var i = 0, n = check.length; i < n; i++) {
+                if (check[i].checked) {
+                    arr += "," + check[i].value;
+                }
+            }
+            // 
+            if (arr) arr = arr.substring(1);
+            const hobbi = arr;
+            alert(
+                `Nama Lengkap : ${nama} \nTempat, Tanggal Lahir : ${tempat}, ${tanggal}-${bulan}-${tahun} \nAlamat : ${alamat} \nNo.Telp/HP : ${no_telp} \nAgama : ${agama} \nHobi : ${hobbi}`
+                )
+        }
+    </script>
 
         
 
